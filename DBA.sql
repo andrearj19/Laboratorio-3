@@ -1,0 +1,23 @@
+ ALTER SESSION SET CONTAINER = XEPDB1;
+
+  CREATE USER hr IDENTIFIED BY pwdhr;
+  GRANT CONNECT TO hr;
+  GRANT RESOURCE TO hr;
+  GRANT CREATE MATERIALIZED VIEW,
+        CREATE PROCEDURE,
+        CREATE SEQUENCE,
+        CREATE SESSION,
+        CREATE SYNONYM,
+        CREATE TABLE,
+        CREATE TRIGGER, 
+        CREATE TYPE,  
+        CREATE VIEW
+    TO hr;
+
+  ALTER USER hr DEFAULT TABLESPACE USERS;
+                                                   
+  -- ALTER USER hr QUOTA 500M ON USERS;
+  -- For unlimited space:
+  ALTER USER hr QUOTA UNLIMITED ON USERS; 
+
+
